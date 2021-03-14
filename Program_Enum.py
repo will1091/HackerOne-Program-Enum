@@ -4,7 +4,7 @@ import random
 
 urls= {"https://hackerone.com/directory/programs?asset_type=CIDR&order_direction=DESC&order_field=started_accepting_at", "https://hackerone.com/directory/programs?asset_type=URL&order_direction=DESC&order_field=started_accepting_at"}
 
-driver = webdriver.Firefox('./')
+driver = webdriver.Firefox('WebDriver_PATH')
 
 def query(url):
     driver.get(url)
@@ -17,10 +17,10 @@ def query(url):
             break
         last_height = new_height
     program = driver.find_elements_by_xpath('//a[@class="daisy-link routerlink daisy-link daisy-link--major spec-profile-name"]')
-    for x in range (len(program)):
-        print(program[x].text)
+    for company in range (len(program)):
+        print(program[company].text)
 
-for x in urls:
-    query(x)
+for record in urls:
+    query(record)
 
    
